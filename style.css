@@ -1,0 +1,105 @@
+body {
+    margin-top: 60px;
+
+    /* http://i.imgur.com/dCS4tQk.jpg */
+    /* http://i.imgur.com/M7YCfZS.jpg */
+    background-image: url(http://i.imgur.com/dCS4tQk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+html,body {
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.headshot {
+    display: block;
+    margin: auto;
+    border-color: #444444;
+    border: 3px solid;
+}
+
+.headshot2 {
+    /*display: block;*/
+    /*align: right;*/
+    margin-right: 16px;
+    border-color: #444444;
+    border: 3px solid;
+}
+
+.headshot3 {
+    /*display: block;*/
+    /*align: right;*/
+    /*margin-right: 16px; */
+    border-color: #444444;
+    border: 3px solid;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    text-decoration: none;
+    border: none;
+    background-color: #949199 !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: inherit;
+}
+
+.top-margin {
+    margin-top: 10px;
+}
+
+.right-margin {
+    margin-right: 20px !important;
+}
+
+.container {
+    height: 100%;
+}
+
+.row {
+    height: 100%;
+}
+
+.no-left-margin {
+    margin-left: 0px;
+}
+
+.no-right-margin {
+    margin-right: 0px;
+}
+
+.thin-border {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.bottom-margin {
+    margin-bottom: 10px;
+}
+
+.home-title {
+    font-family: times, Times New Roman, times-roman, georgia, serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0px 0px 6px 0px;
+    font-size: 57px;
+    line-height: 44px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+.config1 {
+    display: none !important;
+}
+
+.config2 {
+    /* display: none !important; */
+}
