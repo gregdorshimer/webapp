@@ -15,7 +15,8 @@ import secrets
 from pathlib import Path
 
 import dj_database_url
-from django.conf.global_settings import SESSION_COOKIE_SECURE, CSRF_COOKIE_SECURE, SECURE_SSL_REDIRECT, ALLOWED_HOSTS
+from django.conf.global_settings import SESSION_COOKIE_SECURE, CSRF_COOKIE_SECURE, SECURE_SSL_REDIRECT, ALLOWED_HOSTS, \
+    STATICFILES_DIRS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -174,6 +175,9 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:

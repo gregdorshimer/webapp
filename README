@@ -1,3 +1,4 @@
-This project uses Django and is hosted on Heroku.
+This project uses Django and Bootstrap to display data pulled from free public APIs (incomplete).
 
-github.com/gregdorshimer/webapp
+Hosted on Heroku:
+https://rocky-shore-14933-4bb1a0d944bc.herokuapp.com/
