@@ -11,11 +11,13 @@ def index(request):
     #context = {"latest_question_list": latest_question_list}
     return render(request, "dictionary/index.html", )
 
+
+"""
 class IndexView(generic.ListView):
     template_name = "dictionary/index.html"
     def get_queryset(self):
         return
-
+"""
 """
 class IndexView(generic.ListView):
     template_name = "wiki/index.html"
