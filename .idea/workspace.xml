@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fd8357ea-2918-4786-8d78-f8f185b2dbcb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dictionary/static/js/dictionary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/static/js/dictionary.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dictionary/templates/dictionary/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/templates/dictionary/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
