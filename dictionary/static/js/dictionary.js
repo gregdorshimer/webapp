@@ -1,18 +1,42 @@
+function test() {
+  console.log('test function')
+}
 
 
-function search(searchTerm) {
-  alert("Hello from a static file! Value: " + searchTerm);
-
+async function search(searchTerm) {
+  console.log('entered function');
+  if (!searchTerm) {
+    return
+  }
   url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + searchTerm
 
-  alert('url: ' + url);
   // query API
   // catch errors
+
+  try {
+    console.log('trying');
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Response status: ${response.status}');
+    }
+    console.log('awaiting json');
+    const json = await response.json();
+    console.log(json);
+  } catch (error) {
+    console.error(error.message);
+  }
+
+}
+
+//search("dictionary");
+
+
+/***
 
   // fetch: make API call
   // Note: network error when this block is used inside a function.
   // works when listed outside the function
-  fetch(url)
+  return fetch(url)
     .then(response => {
       if (!response.ok) {
         throw new Error("Network response was not ok")
@@ -21,14 +45,14 @@ function search(searchTerm) {
     })
     .then(data => {
       console.log('Data: ', data);
+      return data
     })
     .catch(error => {
       console.error('My super error: ', error.message);
     });
 
   //
-
-}
+*/
 
 
 /**
@@ -55,10 +79,15 @@ function search(searchTerm) {
   // display not found, or data
 
 }
+*/
+
 
 // https://gist.github.com/msmfsd/fca50ab095b795eb39739e8c4357a808
 // async function
-async function fetchAsync (url) {
+
+/**
+async function search(searchTerm) {
+  url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + searchTerm
   // await response of fetch call
   let response = await fetch(url);
   console.log(url)
@@ -67,8 +96,6 @@ async function fetchAsync (url) {
   // only proceed once second promise is resolved
   return data;
 }
-
-// trigger async function
-// log response or catch error of fetch promise
-
 */
+
+
