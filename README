@@ -1,4 +1,5 @@
-This project uses Django and Bootstrap to display data pulled from free public APIs (incomplete).
+This project uses Django and Bootstrap to display data pulled from free public APIs.
 
-Deployed on Heroku:
-https://rocky-shore-14933-4bb1a0d944bc.herokuapp.com/
+Automatic deployment is set up between this repo and Heroku.
+
+http://gregdorshimer.com
