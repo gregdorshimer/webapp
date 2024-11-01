@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'dictionary',
     'wiki',
+    'sudoku',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
