@@ -9,7 +9,7 @@ import requests
 
 register = template.Library()
 
-@register.inclusion_tag("game.html")
+@register.simple_tag()
 def get_game():
     # query API here
     body = {

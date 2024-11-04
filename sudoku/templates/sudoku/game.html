@@ -1,5 +1,8 @@
 {% load sudoku_tags %}
 <p>game.html template</p>
 
-<p>
-</p>
+{% block content %}
+<div>
+    {% get_game as json %}
+</div>
+{% endblock %}
