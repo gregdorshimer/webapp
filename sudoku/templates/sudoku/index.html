@@ -1,55 +1,175 @@
 <!DOCTYPE html>
 {% load static %}
+{% load sudoku_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
     <!-- <script src="{% static 'js/sudoku.js' %}"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/sudoku_styles.css' %}">
 
     <title>Webapp - Sudoku</title>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
         <a class="navbar-brand">Greg Dorshimer's Webapp</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Apps
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/dictionary">Dictionary</a></li>
-                <li><a class="dropdown-item" href="/sudoku">Sudoku</a></li>
-                <li><a class="dropdown-item" href="/wiki">Wiki</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="https://github.com/gregdorshimer">GitHub <img width="16" height="16" src="{% static 'img/github-mark-white.png' %}"></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="https://www.linkedin.com/in/greg-dorshimer-249456a3/">LinkedIn</a>
-            </li>
-          </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Apps
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/dictionary">Dictionary</a></li>
+                        <li><a class="dropdown-item" href="/sudoku">Sudoku</a></li>
+                        <li><a class="dropdown-item" href="/wiki">Wiki</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/gregdorshimer">GitHub <img width="16"
+                                                                                                   height="16"
+                                                                                                   src="{% static 'img/github-mark-white.png' %}"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://www.linkedin.com/in/greg-dorshimer-249456a3/">LinkedIn</a>
+                </li>
+            </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <div class="container my-5">
-      <h1>Hello, world!</h1>
-      <div class="col-lg-8 px-0">
+<div class="container my-5">
+    <h1>Hello, world!</h1>
+    <div class="col-lg-8 px-0">
         <p class="fs-5">Sudoku app under construction.</p>
 
         <hr class="col-1 my-4">
-        {% include "./game.html" %}
-      </div>
+        <div>
+        {% get_game "easy" as game %}
+        {{ game.game.puzzle }}
+        </div>
+        <table>
+            <tbody>
+                <!-- TODO use django template mini language to iterate over game string and render <tr> and <td> -->
+                <!-- TODO finish updating below rows to get working example of what the final game should look like -->
+                <tr>
+                    <!-- readonly should be set by function -->
+                    <!-- class should be set by function -->
+                    <!-- value should be set by function -->
+                    <td class="lt" id="o00"><input class="f" id="i00" autocomplete="off" readonly="" value="2"></td>
+                    <td class="mt" id="o10"><input class="e" id="i10" autocomplete="off" maxlength="1"></td>
+                    <!-- TODO all below should look like the two examples above (once a game is filled with starting vals -->
+                    <td class="mt" id="o20"><input class="e" id="i20" autocomplete="off" maxlength="1"></td>
+                    <td class="mt" id="o30"><input class="f" id="i30" autocomplete="off" readonly="" value="5"></td>
+                    <td class="mt" id="o40"><input class="f" id="i40" autocomplete="off" readonly="" value="8"></td>
+                    <td class="mt" id="o50"><input class="f" id="i50" autocomplete="off" readonly="" value="1"></td>
+                    <td class="mt" id="o60"><input class="e" id="i60" autocomplete="off" maxlength="1"></td>
+                    <td class="mt" id="o70"><input class="e" id="i70" autocomplete="off" maxlength="1"></td>
+                    <td class="rt" id="o80"><input class="e" id="i80" autocomplete="off" maxlength="1"></td>
+                </tr>
+                <tr>
+                    <td class="lm" id="c01"><input class="f" id="i01" autocomplete="off" readonly="" value="1"></td>
+                    <td class="mm" id="c11"><input class="f" id="i11" autocomplete="off" readonly="" value="7"></td>
+                    <td class="mm" id="c21"><input class="e" id="i21" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c31"><input class="e" id="i31" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c41"><input class="f" id="i41" autocomplete="off" readonly="" value="6"></td>
+                    <td class="mm" id="c51"><input class="e" id="i51" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c61"><input class="e" id="i61" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c71"><input class="e" id="i71" autocomplete="off" maxlength="1"></td>
+                    <td class="rm" id="c81"><input class="f" id="i81" autocomplete="off" readonly="" value="3"></td>
+                </tr>
+                <tr>
+                    <td class="lm" id="c02"><input class="e" id="i02" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c12"><input class="f" id="i12" autocomplete="off" readonly="" value="9"></td>
+                    <td class="mm" id="c22"><input class="e" id="i22" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c32"><input class="e" id="i32" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c42"><input class="f" id="i42" autocomplete="off" readonly="" value="4"></td>
+                    <td class="mm" id="c52"><input class="f" id="i52" autocomplete="off" readonly="" value="7"></td>
+                    <td class="mm" id="c62"><input class="f" id="i62" autocomplete="off" readonly="" value="2"></td>
+                    <td class="mm" id="c72"><input class="e" id="i72" autocomplete="off" maxlength="1"></td>
+                    <td class="rm" id="c82"><input class="e" id="i82" autocomplete="off" maxlength="1"></td>
+                </tr>
+                <tr>
+                    <td class="lm" id="c03"><input class="f" id="i03" autocomplete="off" readonly="" value="9""></td>
+                    <td class="mm" id="c13"><input class="e" id="i13" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c23"><input class="e" id="i23" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c33"><input class="f" id="i33" autocomplete="off" readonly="" value="8"></td>
+                    <td class="mm" id="c43"><input class="e" id="i43" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c53"><input class="e" id="i53" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c63"><input class="f" id="i63" autocomplete="off" readonly="" value="3"></td>
+                    <td class="mm" id="c73"><input class="f" id="i73" autocomplete="off" readonly="" value="2"></td>
+                    <td class="rm" id="c83"><input class="e" id="i83" autocomplete="off" maxlength="1"></td>
+                </tr>
+                <tr>
+                    <td class="lm" id="c04"><input class="e" id="i04" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c14"><input class="e" id="i14" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c24"><input class="f" id="i24" autocomplete="off" readonly="" value="2"></td>
+                    <td class="mm" id="c34"><input class="e" id="i34" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c44"><input class="e" id="i44" autocomplete="off" maxlength="1""></td>
+                    <td class="mm" id="c54"><input class="e" id="i54" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c64"><input class="f" id="i64" autocomplete="off" readonly="" value="6"></td>
+                    <td class="mm" id="c74"><input class="e" id="i74" autocomplete="off" maxlength="1"></td>
+                    <td class="rm" id="c84"><input class="e" id="i84" autocomplete="off" maxlength="1"></td>
+                </tr>
+                <tr>
+                    <td class="lm" id="c05"><input class="e" id="i05" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c15"><input class="f" id="i15" autocomplete="off" readonly="" value="6"></td>
+                    <td class="mm" id="c25"><input class="f" id="i25" autocomplete="off" readonly="" value="3"></td>
+                    <td class="mm" id="c35"><input class="e" id="i35" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c45"><input class="e" id="i45" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c55"><input class="f" id="i55" autocomplete="off" readonly="" value="5"></td>
+                    <td class="mm" id="c65"><input class="e" id="i65" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c75"><input class="e" id="i75" autocomplete="off" maxlength="1"></td>
+                    <td class="rm" id="c85"><input class="f" id="i85" autocomplete="off" readonly="" value="8"></td>
+                </tr>
+                <tr>
+                    <td class="lm" id="c06"><input class="e" id="i06" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c16"><input class="e" id="i16" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c26"><input class="f" id="i26" autocomplete="off" readonly="" value="7"></td>
+                    <td class="mm" id="c36"><input class="f" id="i36" autocomplete="off" readonly="" value="6"></td>
+                    <td class="mm" id="c46"><input class="f" id="i46" autocomplete="off" readonly="" value="5"></td>
+                    <td class="mm" id="c56"><input class="e" id="i56" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c66"><input class="e" id="i66" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c76"><input class="f" id="i76" autocomplete="off" readonly="" value="1"></td>
+                    <td class="rm" id="c86"><input class="e" id="i86" autocomplete="off" maxlength="1"></td>
+                </tr>
+                <tr>
+                    <td class="lm" id="c07"><input class="f" id="i07" autocomplete="off" readonly="" value="3"></td>
+                    <td class="mm" id="c17"><input class="e" id="i17" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c27"><input class="e" id="i27" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c37"><input class="e" id="i37" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c47"><input class="f" id="i47" autocomplete="off" readonly="" value="2"></td>
+                    <td class="mm" id="c57"><input class="e" id="i57" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c67"><input class="e" id="i67" autocomplete="off" maxlength="1"></td>
+                    <td class="mm" id="c77"><input class="f" id="i77" autocomplete="off" readonly="" value="6"></td>
+                    <td class="rm" id="c87"><input class="f" id="i87" autocomplete="off" readonly="" value="4"></td>
+                </tr>
+                <tr>
+                    <td class="lb" id="c08"><input class="e" id="i08" autocomplete="off" maxlength="1"></td>
+                    <td class="mb" id="c18"><input class="e" id="i18" autocomplete="off" maxlength="1"></td>
+                    <td class="mb" id="c28"><input class="e" id="i28" autocomplete="off" maxlength="1"></td>
+                    <td class="mb" id="c38"><input class="f" id="i38" autocomplete="off" readonly="" value="4"></td>
+                    <td class="mb" id="c48"><input class="f" id="i48" autocomplete="off" readonly="" value="1"></td>
+                    <td class="mb" id="c58"><input class="f" id="i58" autocomplete="off" readonly="" value="8"></td>
+                    <td class="mb" id="c68"><input class="e" id="i68" autocomplete="off" maxlength="1"></td>
+                    <td class="mb" id="c78"><input class="e" id="i78" autocomplete="off" maxlength="1"></td>
+                    <td class="rb" id="c88"><input class="f" id="i88" autocomplete="off" readonly="" value="7"></td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
+</div>
 
 </body>

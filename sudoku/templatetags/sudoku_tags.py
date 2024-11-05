@@ -10,18 +10,15 @@ import requests
 register = template.Library()
 
 @register.simple_tag()
-def get_game():
+def get_game(difficulty):
     # query API here
     body = {
-        # TODO change difficulty
-        "difficulty": "easy",  # "easy", "medium", or "hard" (defaults to "easy")
+        "difficulty": difficulty,  # "easy", "medium", or "hard" (defaults to "easy")
         "solution": True,  # True or False (defaults to True)
         "array": False  # True or False (defaults to False)
     }
-    # headers = {"Content-Type": "application/json"}
-    # response = requests.post("https://youdosudoku.com/api/", json=body, headers=headers)
-    # return { "game" : response }
+    headers = {"Content-Type": "application/json"}
+    response = requests.post("https://youdosudoku.com/api/", json=body, headers=headers)
+    return { "game" : response.json() , "http_status" : response.status_code }
 
-    response = requests.get("https://youdosudoku.com/api/")
 
-    return { "json" : response.json(), "error" : response.status_code }
