@@ -111,13 +111,6 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}"""
-
 if IS_HEROKU_APP:
     # In production on Heroku the database configuration is derived from the `DATABASE_URL`
     # environment variable by the dj-database-url package. `DATABASE_URL` will be set
@@ -141,6 +134,7 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -185,7 +179,8 @@ STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:
     # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        # "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",   <-- caching
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",           # <-- no caching
     },
 }
 
@@ -202,6 +197,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Loging
 # send django logging to heroku logs in production:
 
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -217,4 +213,5 @@ LOGGING = {
         },
     },
 }
+"""
 
