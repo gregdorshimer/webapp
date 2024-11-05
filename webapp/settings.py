@@ -52,8 +52,8 @@ else:
 if IS_HEROKU_APP:
     ALLOWED_HOSTS = ["*"]
 else:
-    #ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", "0.0.0.0"]
-    ALLOWED_HOSTS = ["*"]
+    ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", "0.0.0.0"]
+    #ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -185,7 +185,7 @@ STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:
     # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
