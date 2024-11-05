@@ -52,8 +52,9 @@ else:
 if IS_HEROKU_APP:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", "0.0.0.0"]
-    #ALLOWED_HOSTS = ["*"]
+    #ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", "0.0.0.0"]
+    ALLOWED_HOSTS = ["*"]
+
 
 # Application definition
 
@@ -61,8 +62,8 @@ INSTALLED_APPS = [
     # Use WhiteNoise's runserver implementation instead of the Django default, for dev-prod parity.
     'whitenoise.runserver_nostatic',
     'dictionary',
-    'wiki',
     'sudoku',
+    'wiki',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
