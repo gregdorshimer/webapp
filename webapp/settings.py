@@ -198,7 +198,10 @@ WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-"""
+
+# Loging
+# send django logging to heroku logs in production:
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -214,4 +217,4 @@ LOGGING = {
         },
     },
 }
-"""
+
