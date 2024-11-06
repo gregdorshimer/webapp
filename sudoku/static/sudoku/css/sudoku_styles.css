@@ -1,0 +1,29 @@
+.lt,.mt,.rt,.lm,.mm,.rm,.lb,.mb,.rb {
+    vertical-align:middle;
+    text-align:center;
+    font-size:18pt;
+    width:42pt;
+    height:43pt
+    border-left: #DDDDEE solid 1px;
+    border-top: #DDDDEE solid 1px;
+    border-right: #DDEEEE solid 1px;
+    border-bottom: #DDEEEE solid 1px;
+}
+
+.lt,.lm,.lb {border-left: #000000 solid 2px;}
+.lt,.mt,.rt {border-top: #000000 solid 2px;}
+.lb,.mb,.rb {border-bottom: #000000 solid 2px;}
+.rt,.rm,.rb {border-right: #000000 solid 2px;}
+
+.e,.f {
+    margin:0;
+    width:42pt;
+    font-size:30pt;
+    text-align: center;
+    font-family:monospace,serif;
+    background-color: transparent;
+    border: solid 0 #fff;
+}
+
+.f {color:#000000;}
+.e {color:#0d6efd;}
