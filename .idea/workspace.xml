@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="fd8357ea-2918-4786-8d78-f8f185b2dbcb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dictionary/static/css/dictionary_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/static/dictionary/css/dictionary_styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dictionary/static/js/dictionary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/static/dictionary/js/dictionary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dictionary/templates/dictionary/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/templates/dictionary/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku/static/js/sudoku.js" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/static/sudoku/js/sudoku.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku/templates/sudoku/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/templates/sudoku/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wiki/static/js/wiki.js" beforeDir="false" afterPath="$PROJECT_DIR$/wiki/static/wiki/js/wiki.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wiki/templates/wiki/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wiki/templates/wiki/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +58,11 @@
       <recent name="$PROJECT_DIR$/static/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/wiki/static/wiki" />
+      <recent name="$PROJECT_DIR$/dictionary/static/dictionary" />
+      <recent name="$PROJECT_DIR$/sudoku/static/sudoku" />
       <recent name="$PROJECT_DIR$/sudoku/static" />
       <recent name="$PROJECT_DIR$/dictionary/static/js" />
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/static/css" />
-      <recent name="$PROJECT_DIR$/static/img" />
     </key>
   </component>
   <component name="SharedIndexes">

@@ -197,7 +197,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Loging
 # send django logging to heroku logs in production:
 
-
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -215,3 +215,4 @@ LOGGING = {
 }
 
 
+"""
