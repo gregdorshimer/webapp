@@ -11,7 +11,6 @@ register = template.Library()
 
 @register.simple_tag()
 def get_game(difficulty):
-    # query API here
     body = {
         "difficulty": difficulty,  # "easy", "medium", or "hard" (defaults to "easy")
         "solution": True,  # True or False (defaults to True)
@@ -19,6 +18,8 @@ def get_game(difficulty):
     }
     headers = {"Content-Type": "application/json"}
     response = requests.post("https://youdosudoku.com/api/", json=body, headers=headers)
-    return { "game" : response.json() , "http_status" : response.status_code }
+    response_json = response.json()
+    response_json['http_status'] = response.status_code
+    return response_json
 
 

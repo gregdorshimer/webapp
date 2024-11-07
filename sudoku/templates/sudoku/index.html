@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
-    <!-- <script src="{% static 'sudoku/js/sudoku.js' %}"></script> -->
+    <script src="{% static 'sudoku/js/sudoku.js' %}"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'sudoku/css/sudoku_styles.css' %}">
@@ -61,9 +61,20 @@
 
             <p>
                 {% get_game "easy" as game %}
-                <!-- {{ game.game.puzzle }} -->
+                {{ game.puzzle }}
             </p>
         </div>
+    </div>
+    <div class="row justify-content-start my-2">
+        <table>
+            <tbody>
+                <!-- -->
+            </tbody>
+        </table>
+        {% for char in game.puzzle %}
+            {{ char }}
+            <!-- TODO render HTML here -->
+        {% endfor %}
     </div>
     <div class="row justify-content-start my-2">
             <div class="col-2 my-auto">
@@ -87,6 +98,7 @@
                             <!-- readonly should be set by function -->
                             <!-- class should be set by function, including if it's wrong -->
                             <!-- value should be set by function -->
+                            <!-- remove ids? -->
                             <td class="lt" id="o00"><input class="f" id="i00" autocomplete="off" readonly="" value="2"></td>
                             <td class="mt" id="o10"><input class="e" id="i10" autocomplete="off" maxlength="1"></td>
                             <td class="rt" id="o20"><input class="e" id="i20" autocomplete="off" maxlength="1"></td>

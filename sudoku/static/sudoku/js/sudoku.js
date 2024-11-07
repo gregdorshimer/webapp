@@ -1,6 +1,9 @@
+// TODO call getPuzzle() when page is loaded
+// TODO hook up buttons to buttonClick(button)
+// TODO change IDs of HTML elements
 
 async function getPuzzle() {
-  url = "https://you-do-sudoku-api.vercel.app/api"
+  url = "https://youdosudoku.com/api/"
 
   // query API, catch errors
   try {
@@ -11,7 +14,7 @@ async function getPuzzle() {
     }
     const json = await response.json();
     console.log(json);
-    displayWord(json[0]);
+    displayWord(json);
   } catch (error) {
     displayError(error);
     console.error(error.message);
@@ -21,22 +24,26 @@ async function getPuzzle() {
 function displayWord(json) {
   console.log('displayWord()');
   // TODO
+  /*
   word.innerText = json.word
   phonetic.innerText = json.phonetic
   partOfSpeech0.innerText = json.meanings[0].partOfSpeech
   def0.innerText = json.meanings[0].definitions[0].definition
+  */
 }
 
 function displayBadResponse(response) {
   console.log('displayBadResponse()');
   // TODO
-  word.innerText = 'Not found'
-  phonetic.innerText = ''
-  partOfSpeech0.innerText = ''
-  def0.innerText = ''
 }
 
 function displayError(error) {
   console.log('displayError()');
   // TODO
+}
+
+function buttonClick(button) {
+  // TODO set given button to disabled
+  // TODO set other buttons to not disabled
+  // TODO call getPuzzle()
 }
