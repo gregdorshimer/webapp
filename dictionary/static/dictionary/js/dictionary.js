@@ -1,4 +1,3 @@
-
 async function search(searchTerm) {
   if (!searchTerm) {
     return

@@ -20,6 +20,6 @@ def get_game(difficulty):
     response = requests.post("https://youdosudoku.com/api/", json=body, headers=headers)
     response_json = response.json()
     response_json['http_status'] = response.status_code
-    return response_json
+    return response
 
 
