@@ -1,49 +1,85 @@
-// TODO call getPuzzle() when btn is clicked
+// TODO refactor to use jQuery
 
 var puzzle = ''
 var solution = ''
 
-async function checkAnswers(id) {
-  // TODO send http post to django api endpoint
-  // TODO return response (either bool or [] or [rows/columns that are wrong])
+const testPuzzle = "000000300010003780040100260400308020000204610002590400564000900001000000387002000";
 
+// pulls answers from the board and returns as a string with zeros for unfilled spaces
+function getAnswers() {
   answers = ''
 
   for (let i = 0; i < 81; i++) {
     let id = "c" + i.toString();
-    if (id.getAttribute("value")) {
-      answers += id.getAttribute("value");
+    if (document.getElementById(id).getAttribute("value")) {
+      answers += document.getElementById(id).getAttribute("value");
     } else if (id.innerText) {
-      answers += id.innerText;
+      answers += document.getElementById(id).innerText;
     } else {
       answers += "0";
     }
   }
 
-  // TODO
-
+  return answers;
 }
 
+// sends the answers that are filled to the django web endpoint to check for correctness, and changes display according
+// to response
+async function submit() {
+  var answers = getAnswers();
 
-function readAnswers() {
-  // TODO read answers from the board and return as a string
+  // TODO send http post to django api endpoint
+  // TODO return response (either bool or [] or [rows/columns that are wrong])
+  var response = "";
+  if (response.correct) {
+    alertCorrect();
+  } else {
+    alertIncorrect(response.rows, response.columns);
+  }
 }
 
+function alertCorrect() {
+  $(".cell").removeClass("cell-normal");
+  $(".cell").removeClass("cell-incorrect");
+  $(".cell").addClass("cell-correct");
 
+  // TODO uncomment when ready
+  // alert("Puzzle completed!");
+
+  easyBtn.disabled = false;
+  mediumBtn.disabled = false;
+  hardBtn.disabled = false;
+}
+
+function alertIncorrect(rows, columns) {
+  for (row in rows) {
+    $("." + rows[row]).removeClass("cell-normal");
+    $("." + rows[row]).removeClass("cell-correct");
+    $("." + rows[row]).addClass("cell-incorrect");
+  }
+  for (column in columns) {
+    $("." + columns[column]).removeClass("cell-normal");
+    $("." + columns[column]).removeClass("cell-correct");
+    $("." + columns[column]).addClass("cell-incorrect");
+  }
+
+  // TODO uncomment when ready
+  // alert("Check these spaces!");
+}
 
 function displayPuzzle(puzzle) {
   for (let i = 0; i < 81; i++) {
     let id = "c" + i;
     let element = document.getElementById(id);
     if (puzzle[i] != 0) {
-      element.setAttribute("class", "f");
+      element.setAttribute("class", "cell-text f");
       element.setAttribute("readonly", true);
       element.setAttribute("value", "" + puzzle[i]);
       element.removeAttribute("maxlength");
       element.innerText = "";
     }
     else {
-      element.setAttribute("class", "e");
+      element.setAttribute("class", "cell-text e");
       element.removeAttribute("readonly");
       element.setAttribute("value", "");
       element.removeAttribute("value");
@@ -83,8 +119,8 @@ function buttonClick(button) {
   console.log('buttonClick(' + button + ')');
 
 
+  // TODO: enable below once implemented
   // puzzle = /* await? */ getPuzzle(button);
-  var testPuzzle = "000000300010003780040100260400308020000204610002590400564000900001000000387002000";
   displayPuzzle(testPuzzle);
 
   // set correct Btn to disabled, enable other buttons

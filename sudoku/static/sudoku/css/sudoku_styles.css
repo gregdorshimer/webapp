@@ -1,4 +1,4 @@
-.lt,.mt,.rt,.lm,.mm,.rm,.lb,.mb,.rb {
+.cell {
     vertical-align:middle;
     text-align:center;
     font-size:18pt;
@@ -10,12 +10,16 @@
     border-bottom: #DDEEEE solid 1px;
 }
 
-.lt,.lm,.lb {border-left: #000000 solid 2px;}
-.lt,.mt,.rt {border-top: #000000 solid 2px;}
-.lb,.mb,.rb {border-bottom: #000000 solid 2px;}
-.rt,.rm,.rb {border-right: #000000 solid 2px;}
+.cell-normal { background-color: transparent; }
+.cell-incorrect { background-color: #E78587; }
+.cell-correct { background-color: #228B22; }
 
-.e,.f {
+.lt,.lm,.lb { border-left: #000000 solid 2px; }
+.lt,.mt,.rt { border-top: #000000 solid 2px; }
+.lb,.mb,.rb { border-bottom: #000000 solid 2px; }
+.rt,.rm,.rb { border-right: #000000 solid 2px; }
+
+.cell-text {
     margin:0;
     width:42pt;
     font-size:30pt;
@@ -25,5 +29,5 @@
     border: solid 0 #fff;
 }
 
-.f {color:#000000;}
-.e {color:#0d6efd;}
+.f { color:#000000; }
+.e { color:#0D6EFD; }

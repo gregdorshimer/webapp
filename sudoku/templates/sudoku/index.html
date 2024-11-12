@@ -5,10 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{% static 'sudoku/js/sudoku.js' %}"></script>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'sudoku/css/sudoku_styles.css' %}">
@@ -68,131 +72,130 @@
         </div>
     </div>
     <div class="row justify-content-start my-2">
-            <div class="col-2 my-auto">
-                <div class="d-grid gap-4 mx-auto">
-                  <button class="btn btn-lg btn-primary" type="button" id="easyBtn" onclick="buttonClick('easy')">Easy</button>
-                  <button class="btn btn-lg btn-primary" type="button" id="mediumBtn" onclick="buttonClick('medium')">Medium</button>
-                  <button class="btn btn-lg btn-primary" type="button" id="hardBtn" onclick="buttonClick('hard')">Hard</button>
-                </div>
-
-                <hr class="col-7 my-6 mx-auto">
-
-                <div class="d-grid gap-3">
-                    <button class="btn btn-lg btn-primary" type="button">Submit</button>
-                </div>
+        <div class="col-2 my-auto">
+            <div class="d-grid gap-4 mx-auto">
+              <button class="btn btn-lg btn-primary" type="button" id="easyBtn" onclick="buttonClick('easy')">Easy</button>
+              <button class="btn btn-lg btn-primary" type="button" id="mediumBtn" onclick="buttonClick('medium')">Medium</button>
+              <button class="btn btn-lg btn-primary" type="button" id="hardBtn" onclick="buttonClick('hard')">Hard</button>
             </div>
-            <div class="col-2">
-                <table>
-                    <tbody>
-                        <tr>
-                            <!-- use javascript to make call to server-side endpoint and check whether correct -->
-                            <!-- use response in a javascript function to update screen, either highlighting
-                            rows/columns that are incorrect or doing some other type of message -->
 
-                            <td class="lt"><input class="f" id="c0" autocomplete="off" readonly="" value="2"></td>
-                            <td class="mt"><input class="e" id="c1" autocomplete="off" maxlength="1"></td>
-                            <td class="rt"><input class="e" id="c2" autocomplete="off" maxlength="1"></td>
-                            <td class="lt"><input class="f" id="c3" autocomplete="off" readonly="" value="5"></td>
-                            <td class="mt"><input class="f" id="c4" autocomplete="off" readonly="" value="8"></td>
-                            <td class="rt"><input class="f" id="c5" autocomplete="off" readonly="" value="1"></td>
-                            <td class="lt"><input class="e" id="c6" autocomplete="off" maxlength="1"></td>
-                            <td class="mt"><input class="e" id="c7" autocomplete="off" maxlength="1"></td>
-                            <td class="rt"><input class="e" id="c8" autocomplete="off" maxlength="1"></td>
-                        </tr>
-                        <tr>
-                            <td class="lm"><input class="f" id="c9" autocomplete="off" readonly="" value="1"></td>
-                            <td class="mm"><input class="f" id="c10" autocomplete="off" readonly="" value="7"></td>
-                            <td class="rm"><input class="e" id="c11" autocomplete="off" maxlength="1"></td>
-                            <td class="lm"><input class="e" id="c12" autocomplete="off" maxlength="1"></td>
-                            <td class="mm"><input class="f" id="c13" autocomplete="off" readonly="" value="6"></td>
-                            <td class="rm"><input class="e" id="c14" autocomplete="off" maxlength="1"></td>
-                            <td class="lm"><input class="e" id="c15" autocomplete="off" maxlength="1"></td>
-                            <td class="mm"><input class="e" id="c16" autocomplete="off" maxlength="1"></td>
-                            <td class="rm"><input class="f" id="c17" autocomplete="off" readonly="" value="3"></td>
-                        </tr>
-                        <tr>
-                            <td class="lb"><input class="e" id="c18" autocomplete="off" maxlength="1"></td>
-                            <td class="mb"><input class="f" id="c19" autocomplete="off" readonly="" value="9"></td>
-                            <td class="rb"><input class="e" id="c20" autocomplete="off" maxlength="1"></td>
-                            <td class="lb"><input class="e" id="c21" autocomplete="off" maxlength="1"></td>
-                            <td class="mb"><input class="f" id="c22" autocomplete="off" readonly="" value="4"></td>
-                            <td class="rb"><input class="f" id="c23" autocomplete="off" readonly="" value="7"></td>
-                            <td class="lb"><input class="f" id="c24" autocomplete="off" readonly="" value="2"></td>
-                            <td class="mb"><input class="e" id="c25" autocomplete="off" maxlength="1"></td>
-                            <td class="rb"><input class="e" id="c26" autocomplete="off" maxlength="1"></td>
-                        </tr>
-                        <tr>
-                            <td class="lt"><input class="f" id="c27" autocomplete="off" readonly="" value="9"></td>
-                            <td class="mt"><input class="e" id="c28" autocomplete="off" maxlength="1"></td>
-                            <td class="rt"><input class="e" id="c29" autocomplete="off" maxlength="1"></td>
-                            <td class="lt"><input class="f" id="c30" autocomplete="off" readonly="" value="8"></td>
-                            <td class="mt"><input class="e" id="c31" autocomplete="off" maxlength="1"></td>
-                            <td class="rt"><input class="e" id="c32" autocomplete="off" maxlength="1"></td>
-                            <td class="lt"><input class="f" id="c33" autocomplete="off" readonly="" value="3"></td>
-                            <td class="mt"><input class="f" id="c34" autocomplete="off" readonly="" value="2"></td>
-                            <td class="rt"><input class="e" id="c35" autocomplete="off" maxlength="1"></td>
-                        </tr>
-                        <tr>
-                            <td class="lm"><input class="e" id="c36" autocomplete="off" maxlength="1"></td>
-                            <td class="mm"><input class="e" id="c37" autocomplete="off" maxlength="1"></td>
-                            <td class="rm"><input class="f" id="c38" autocomplete="off" readonly="" value="2"></td>
-                            <td class="lm"><input class="e" id="c39" autocomplete="off" maxlength="1"></td>
-                            <td class="mm"><input class="e" id="c40" autocomplete="off" maxlength="1"></td>
-                            <td class="rm"><input class="e" id="c41" autocomplete="off" maxlength="1"></td>
-                            <td class="lm"><input class="f" id="c42" autocomplete="off" readonly="" value="6"></td>
-                            <td class="mm"><input class="e" id="c43" autocomplete="off" maxlength="1"></td>
-                            <td class="rm"><input class="e" id="c44" autocomplete="off" maxlength="1"></td>
-                        </tr>
-                        <tr>
-                            <td class="lb"><input class="e" id="c45" autocomplete="off" maxlength="1"></td>
-                            <td class="mb"><input class="f" id="c46" autocomplete="off" readonly="" value="6"></td>
-                            <td class="rb"><input class="f" id="c47" autocomplete="off" readonly="" value="3"></td>
-                            <td class="lb"><input class="e" id="c48" autocomplete="off" maxlength="1"></td>
-                            <td class="mb"><input class="e" id="c49" autocomplete="off" maxlength="1"></td>
-                            <td class="rb"><input class="f" id="c50" autocomplete="off" readonly="" value="5"></td>
-                            <td class="lb"><input class="e" id="c51" autocomplete="off" maxlength="1"></td>
-                            <td class="mb"><input class="e" id="c52" autocomplete="off" maxlength="1"></td>
-                            <td class="rb"><input class="f" id="c53" autocomplete="off" readonly="" value="8"></td>
-                        </tr>
-                        <tr>
-                            <td class="lt"><input class="e" id="c54" autocomplete="off" maxlength="1"></td>
-                            <td class="mt"><input class="e" id="c55" autocomplete="off" maxlength="1"></td>
-                            <td class="rt"><input class="f" id="c56" autocomplete="off" readonly="" value="7"></td>
-                            <td class="lt"><input class="f" id="c57" autocomplete="off" readonly="" value="6"></td>
-                            <td class="mt"><input class="f" id="c58" autocomplete="off" readonly="" value="5"></td>
-                            <td class="rt"><input class="e" id="c59" autocomplete="off" maxlength="1"></td>
-                            <td class="lt"><input class="e" id="c60" autocomplete="off" maxlength="1"></td>
-                            <td class="mt"><input class="f" id="c61" autocomplete="off" readonly="" value="1"></td>
-                            <td class="rt"><input class="e" id="c62" autocomplete="off" maxlength="1"></td>
-                        </tr>
-                        <tr>
-                            <td class="lm"><input class="f" id="c63" autocomplete="off" readonly="" value="3"></td>
-                            <td class="mm"><input class="e" id="c64" autocomplete="off" maxlength="1"></td>
-                            <td class="rm"><input class="e" id="c65" autocomplete="off" maxlength="1"></td>
-                            <td class="lm"><input class="e" id="c66" autocomplete="off" maxlength="1"></td>
-                            <td class="mm"><input class="f" id="c67" autocomplete="off" readonly="" value="2"></td>
-                            <td class="rm"><input class="e" id="c68" autocomplete="off" maxlength="1"></td>
-                            <td class="lm"><input class="e" id="c69" autocomplete="off" maxlength="1"></td>
-                            <td class="mm"><input class="f" id="c70" autocomplete="off" readonly="" value="6"></td>
-                            <td class="rm"><input class="f" id="c71" autocomplete="off" readonly="" value="4"></td>
-                        </tr>
-                        <tr>
-                            <td class="lb"><input class="e" id="c72" autocomplete="off" maxlength="1"></td>
-                            <td class="mb"><input class="e" id="c73" autocomplete="off" maxlength="1"></td>
-                            <td class="rb"><input class="e" id="c74" autocomplete="off" maxlength="1"></td>
-                            <td class="lb"><input class="f" id="c75" autocomplete="off" readonly="" value="4"></td>
-                            <td class="mb"><input class="f" id="c76" autocomplete="off" readonly="" value="1"></td>
-                            <td class="rb"><input class="f" id="c77" autocomplete="off" readonly="" value="8"></td>
-                            <td class="lb"><input class="e" id="c78" autocomplete="off" maxlength="1"></td>
-                            <td class="mb"><input class="e" id="c79" autocomplete="off" maxlength="1"></td>
-                            <td class="rb"><input class="f" id="c80" autocomplete="off" readonly="" value="7"></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <hr class="col-7 my-6 mx-auto">
+
+            <div class="d-grid gap-3">
+                <button class="btn btn-lg btn-primary" type="button" id="submitBtn" onclick="submit()">Submit</button>
             </div>
         </div>
+        <div class="col-2">
+            <table>
+                <tbody>
+                    <tr>
+                        <!-- use javascript to make call to server-side endpoint and check whether correct -->
+                        <!-- use response in a javascript function to update screen, either highlighting
+                        rows/columns that are incorrect or doing some other type of message -->
 
+                        <td class="lt r0 c0 cell cell-normal"><input class="cell-text e" id="c0" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r0 c1 cell cell-normal"><input class="cell-text e" id="c1" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r0 c2 cell cell-normal"><input class="cell-text e" id="c2" autocomplete="off" maxlength="1"></td>
+                        <td class="lt r0 c3 cell cell-normal"><input class="cell-text e" id="c3" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r0 c4 cell cell-normal"><input class="cell-text e" id="c4" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r0 c5 cell cell-normal"><input class="cell-text e" id="c5" autocomplete="off" maxlength="1"></td>
+                        <td class="lt r0 c6 cell cell-normal"><input class="cell-text e" id="c6" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r0 c7 cell cell-normal"><input class="cell-text e" id="c7" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r0 c8 cell cell-normal"><input class="cell-text e" id="c8" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lm r1 c0 cell cell-normal"><input class="cell-text e" id="c9" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r1 c1 cell cell-normal"><input class="cell-text e" id="c10" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r1 c2 cell cell-normal"><input class="cell-text e" id="c11" autocomplete="off" maxlength="1"></td>
+                        <td class="lm r1 c3 cell cell-normal"><input class="cell-text e" id="c12" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r1 c4 cell cell-normal"><input class="cell-text e" id="c13" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r1 c5 cell cell-normal"><input class="cell-text e" id="c14" autocomplete="off" maxlength="1"></td>
+                        <td class="lm r1 c6 cell cell-normal"><input class="cell-text e" id="c15" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r1 c7 cell cell-normal"><input class="cell-text e" id="c16" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r1 c8 cell cell-normal"><input class="cell-text e" id="c17" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lb r2 c0 cell cell-normal"><input class="cell-text e" id="c18" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r2 c1 cell cell-normal"><input class="cell-text e" id="c19" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r2 c2 cell cell-normal"><input class="cell-text e" id="c20" autocomplete="off" maxlength="1"></td>
+                        <td class="lb r2 c3 cell cell-normal"><input class="cell-text e" id="c21" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r2 c4 cell cell-normal"><input class="cell-text e" id="c22" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r2 c5 cell cell-normal"><input class="cell-text e" id="c23" autocomplete="off" maxlength="1"></td>
+                        <td class="lb r2 c6 cell cell-normal"><input class="cell-text e" id="c24" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r2 c7 cell cell-normal"><input class="cell-text e" id="c25" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r2 c8 cell cell-normal"><input class="cell-text e" id="c26" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lt r3 c0 cell cell-normal"><input class="cell-text e" id="c27" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r3 c1 cell cell-normal"><input class="cell-text e" id="c28" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r3 c2 cell cell-normal"><input class="cell-text e" id="c29" autocomplete="off" maxlength="1"></td>
+                        <td class="lt r3 c3 cell cell-normal"><input class="cell-text e" id="c30" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r3 c4 cell cell-normal"><input class="cell-text e" id="c31" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r3 c5 cell cell-normal"><input class="cell-text e" id="c32" autocomplete="off" maxlength="1"></td>
+                        <td class="lt r3 c6 cell cell-normal"><input class="cell-text e" id="c33" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r3 c7 cell cell-normal"><input class="cell-text e" id="c34" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r3 c8 cell cell-normal"><input class="cell-text e" id="c35" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lm r4 c0 cell cell-normal"><input class="cell-text e" id="c36" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r4 c1 cell cell-normal"><input class="cell-text e" id="c37" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r4 c2 cell cell-normal"><input class="cell-text e" id="c38" autocomplete="off" maxlength="1"></td>
+                        <td class="lm r4 c3 cell cell-normal"><input class="cell-text e" id="c39" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r4 c4 cell cell-normal"><input class="cell-text e" id="c40" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r4 c5 cell cell-normal"><input class="cell-text e" id="c41" autocomplete="off" maxlength="1"></td>
+                        <td class="lm r4 c6 cell cell-normal"><input class="cell-text e" id="c42" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r4 c7 cell cell-normal"><input class="cell-text e" id="c43" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r4 c8 cell cell-normal"><input class="cell-text e" id="c44" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lb r5 c0 cell cell-normal"><input class="cell-text e" id="c45" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r5 c1 cell cell-normal"><input class="cell-text e" id="c46" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r5 c2 cell cell-normal"><input class="cell-text e" id="c47" autocomplete="off" maxlength="1"></td>
+                        <td class="lb r5 c3 cell cell-normal"><input class="cell-text e" id="c48" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r5 c4 cell cell-normal"><input class="cell-text e" id="c49" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r5 c5 cell cell-normal"><input class="cell-text e" id="c50" autocomplete="off" maxlength="1"></td>
+                        <td class="lb r5 c6 cell cell-normal"><input class="cell-text e" id="c51" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r5 c7 cell cell-normal"><input class="cell-text e" id="c52" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r5 c8 cell cell-normal"><input class="cell-text e" id="c53" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lt r6 c0 cell cell-normal"><input class="cell-text e" id="c54" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r6 c1 cell cell-normal"><input class="cell-text e" id="c55" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r6 c2 cell cell-normal"><input class="cell-text e" id="c56" autocomplete="off" maxlength="1"></td>
+                        <td class="lt r6 c3 cell cell-normal"><input class="cell-text e" id="c57" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r6 c4 cell cell-normal"><input class="cell-text e" id="c58" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r6 c5 cell cell-normal"><input class="cell-text e" id="c59" autocomplete="off" maxlength="1"></td>
+                        <td class="lt r6 c6 cell cell-normal"><input class="cell-text e" id="c60" autocomplete="off" maxlength="1"></td>
+                        <td class="mt r6 c7 cell cell-normal"><input class="cell-text e" id="c61" autocomplete="off" maxlength="1"></td>
+                        <td class="rt r6 c8 cell cell-normal"><input class="cell-text e" id="c62" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lm r7 c0 cell cell-normal"><input class="cell-text e" id="c63" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r7 c1 cell cell-normal"><input class="cell-text e" id="c64" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r7 c2 cell cell-normal"><input class="cell-text e" id="c65" autocomplete="off" maxlength="1"></td>
+                        <td class="lm r7 c3 cell cell-normal"><input class="cell-text e" id="c66" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r7 c4 cell cell-normal"><input class="cell-text e" id="c67" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r7 c5 cell cell-normal"><input class="cell-text e" id="c68" autocomplete="off" maxlength="1"></td>
+                        <td class="lm r7 c6 cell cell-normal"><input class="cell-text e" id="c69" autocomplete="off" maxlength="1"></td>
+                        <td class="mm r7 c7 cell cell-normal"><input class="cell-text e" id="c70" autocomplete="off" maxlength="1"></td>
+                        <td class="rm r7 c8 cell cell-normal"><input class="cell-text e" id="c71" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="lb r8 c0 cell cell-normal"><input class="cell-text e" id="c72" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r8 c1 cell cell-normal"><input class="cell-text e" id="c73" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r8 c2 cell cell-normal"><input class="cell-text e" id="c74" autocomplete="off" maxlength="1"></td>
+                        <td class="lb r8 c3 cell cell-normal"><input class="cell-text e" id="c75" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r8 c4 cell cell-normal"><input class="cell-text e" id="c76" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r8 c5 cell cell-normal"><input class="cell-text e" id="c77" autocomplete="off" maxlength="1"></td>
+                        <td class="lb r8 c6 cell cell-normal"><input class="cell-text e" id="c78" autocomplete="off" maxlength="1"></td>
+                        <td class="mb r8 c7 cell cell-normal"><input class="cell-text e" id="c79" autocomplete="off" maxlength="1"></td>
+                        <td class="rb r8 c8 cell cell-normal"><input class="cell-text e" id="c80" autocomplete="off" maxlength="1"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
 </div>
 
 </body>
