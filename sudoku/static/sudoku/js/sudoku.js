@@ -1,5 +1,10 @@
 const testPuzzle = "000000300010003780040100260400308020000204610002590400564000900001000000387002000";
 
+async function getPuzzle(difficulty) {
+  // TODO
+  // async/await call to django api
+}
+
 // pulls answers from the board and returns as a string with zeros for unfilled spaces
 function getAnswers() {
   answers = '';
@@ -120,6 +125,7 @@ function buttonClick(button) {
 
   // TODO: enable below once implemented
   // puzzle = /* await? */ getPuzzle(button);
+
   displayPuzzle(testPuzzle);
 
   // set correct Btn to disabled, enable other buttons

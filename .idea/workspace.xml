@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fd8357ea-2918-4786-8d78-f8f185b2dbcb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dictionary/static/dictionary/js/dictionary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/static/dictionary/js/dictionary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dictionary/templates/dictionary/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/templates/dictionary/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sudoku/static/sudoku/js/sudoku.js" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/static/sudoku/js/sudoku.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku/templates/sudoku/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/templates/sudoku/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku/templatetags/sudoku_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/templatetags/sudoku_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +45,8 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/misc/code/webapp/wiki/static&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+    &quot;last_opened_file_path&quot;: &quot;/misc/code/django-test&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -79,5 +80,8 @@
       <updated>1727321212756</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.cfg" />
   </component>
 </project>
