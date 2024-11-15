@@ -1,13 +1,26 @@
 const testPuzzle = "000000300010003780040100260400308020000204610002590400564000900001000000387002000";
+var gameID = '';
 
 async function getPuzzle(difficulty) {
-  // TODO
-  // async/await call to django api
+  console.log('getPuzzle(' + difficulty + ')');
+  try {
+    const response = await fetch('game/?difficulty=' + difficulty);
+    if (!response.ok) {
+      throw new Error('Response status: ' + response.status);
+    } else {
+      const json = await response.json();
+      gameID = json.id;
+      return json;
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 // pulls answers from the board and returns as a string with zeros for unfilled spaces
 function getAnswers() {
   answers = '';
+  // TODO this doesn't work, debug
 
   $(".cell-text").each(function() {
     if ($(this).attr("value")) {
@@ -25,10 +38,33 @@ function getAnswers() {
 // sends the answers that are filled to the django web endpoint to check for correctness, and changes display according
 // to response
 async function submit() {
+  console.log('submit()');
   var answers = getAnswers();
+  console.log('answers: ' + answers);
 
-  // TODO send http post to django api endpoint
+  // TODO send http post to django api endpoint: /sudoku/game
   // TODO return response (either bool or [] or [rows/columns that are wrong])
+
+  try {
+    const response = fetch('game/', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        id: gameID,
+        answers: answers,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error('Response status: ' + response.status);
+    } else {
+      // TODO handle response cases and display things
+      const json = await response.json();
+      return response.json();
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+
   var response = "";
   alertCorrect();
   /*
@@ -95,38 +131,12 @@ function displayPuzzle(puzzle) {
   }
 }
 
-  /*
-  url = "https://youdosudoku.com/api/"
-
-  // query API, catch errors
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      mode: 'no-cors',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        difficulty: "easy",
-        solution: true,
-        array: false
-      })});
-    if (!response.ok) {
-      console.error("response not ok: " + response.status);
-    }
-    const json = await response.json();
-    console.log(json);
-  } catch (error) {
-    console.error(error);
-  } */
-
-
-
-function buttonClick(button) {
+async function buttonClick(button) {
   console.log('buttonClick(' + button + ')');
 
-  // TODO: enable below once implemented
-  // puzzle = /* await? */ getPuzzle(button);
+  const puzzle = await getPuzzle(button);
 
-  displayPuzzle(testPuzzle);
+  displayPuzzle(puzzle.game);
 
   // set correct Btn to disabled, enable other buttons
   switch(button) {

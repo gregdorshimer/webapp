@@ -16,7 +16,7 @@ from pathlib import Path
 
 import dj_database_url
 from django.conf.global_settings import SESSION_COOKIE_SECURE, CSRF_COOKIE_SECURE, SECURE_SSL_REDIRECT, ALLOWED_HOSTS, \
-    STATICFILES_DIRS
+    STATICFILES_DIRS, APPEND_SLASH
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,6 +89,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'webapp.urls'
+
+# APPEND_SLASH = False
 
 TEMPLATES = [
     {
