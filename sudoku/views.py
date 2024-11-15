@@ -10,8 +10,6 @@ from rest_framework import status
 
 
 def index(request):
-    #return HttpResponse("Hello, world. You're at the dictionary index.")
-    #context = {"latest_question_list": latest_question_list}
     return render(request, "sudoku/index.html", )
 
 
@@ -24,6 +22,9 @@ class GameAPIView(APIView):
         """
         # print(request.query_params['difficulty']) # how to access URL encoded params -> QueryDict
         difficulty = request.query_params.get('difficulty', 'easy') # difficulty is 'easy' if no difficulty supplied
+        # TODO make external API call
+        # TODO store data from external API call locally
+        # TODO respond with data from external API call
         return Response(
             { "game": "999000300010003780040100260400308020000204610002590400564000900001000000387002000",
               "difficulty": difficulty,
@@ -38,6 +39,9 @@ class GameAPIView(APIView):
         --depending on correctness, make some alteration to DB for submission tracking
         :return: "correct" or arrays of columns and rows that are wrong
         """
+        # TODO get body data
+        # TODO look up game locally
+        # TODO respond with result of local DB lookup
         return Response(status=status.HTTP_200_OK)
 
 """

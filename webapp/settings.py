@@ -90,7 +90,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'webapp.urls'
 
-# APPEND_SLASH = False
+# APPEND_SLASH = False # may be necessary for API calls
 
 TEMPLATES = [
     {
