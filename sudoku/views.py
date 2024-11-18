@@ -50,11 +50,12 @@ class GameAPIView(APIView):
         --depending on correctness, make some alteration to DB for submission tracking
         :return: "correct" or arrays of columns and rows that are wrong
         """
-        # TODO get body data
-        # TODO look up game locally
-        # TODO respond with result of local DB lookup
+        # print('.data: ', request.data['answers']) # how to access post request body
+
+        # TODO look up game locally, choose response according to answer check
 
         return Response({'rows': [4, 7], 'columns': [5, 7]}, status=status.HTTP_200_OK)
+        # return Response({'correct': True}, status=status.HTTP_200_OK)
 
 """
 class IndexView(generic.ListView):

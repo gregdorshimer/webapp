@@ -1,7 +1,7 @@
-const testPuzzle = "000000300010003780040100260400308020000204610002590400564000900001000000387002000";
-var gameID = '';
+var gameID = '1234'; // TODO this doesn't work
 
 // TODO on-type into the calls, reset CSS to remove red highlighting for wrong columns and rows
+// TODO find a way to persist the gameID across calls and button clicks
 
 async function getPuzzle(difficulty) {
   console.log('getPuzzle(' + difficulty + ')');
@@ -43,6 +43,7 @@ function getAnswers() {
 // to response
 async function submit() {
   console.log('submit()');
+  console.log('gameID: ' + gameID);
   var answers = getAnswers();
 
   try {
