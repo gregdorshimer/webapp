@@ -1,6 +1,8 @@
 const testPuzzle = "000000300010003780040100260400308020000204610002590400564000900001000000387002000";
 var gameID = '';
 
+// TODO on-type into the calls, reset CSS to remove red highlighting for wrong columns and rows
+
 async function getPuzzle(difficulty) {
   console.log('getPuzzle(' + difficulty + ')');
   try {
@@ -20,17 +22,19 @@ async function getPuzzle(difficulty) {
 // pulls answers from the board and returns as a string with zeros for unfilled spaces
 function getAnswers() {
   answers = '';
-  // TODO this doesn't work, debug
 
   $(".cell-text").each(function() {
     if ($(this).attr("value")) {
       answers += $(this).attr("value");
-    } else if ($(this).text()) {
-      answers += $(this).text();
+    } else if ($(this).val()) {
+      console.log('text found: ' + $(this).val());
+      answers += $(this).val();
     } else {
       answers += "0";
     }
   });
+
+  console.log('answers: ' + answers);
 
   return answers;
 }
@@ -40,13 +44,9 @@ function getAnswers() {
 async function submit() {
   console.log('submit()');
   var answers = getAnswers();
-  console.log('answers: ' + answers);
-
-  // TODO send http post to django api endpoint: /sudoku/game
-  // TODO return response (either bool or [] or [rows/columns that are wrong])
 
   try {
-    const response = fetch('game/', {
+    const response = await fetch('game/', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
@@ -57,22 +57,17 @@ async function submit() {
     if (!response.ok) {
       throw new Error('Response status: ' + response.status);
     } else {
-      // TODO handle response cases and display things
       const json = await response.json();
-      return response.json();
+      console.log(json);
+      if (json['correct']) {
+        alertCorrect();
+      } else {
+        alertIncorrect(json.rows, json.columns);
+      }
     }
   } catch (error) {
     console.error(error.message);
   }
-
-  var response = "";
-  alertCorrect();
-  /*
-  if (response.correct) {
-    alertCorrect();
-  } else {
-    alertIncorrect(response.rows, response.columns);
-  } */
 }
 
 function alertCorrect() {
@@ -90,14 +85,15 @@ function alertCorrect() {
 
 function alertIncorrect(rows, columns) {
   for (row in rows) {
-    $("." + rows[row]).removeClass("cell-normal");
-    $("." + rows[row]).removeClass("cell-correct");
-    $("." + rows[row]).addClass("cell-incorrect");
+    $(".r" + rows[row]).removeClass("cell-normal");
+    $(".r" + rows[row]).removeClass("cell-correct");
+    $(".r" + rows[row]).addClass("cell-incorrect");
   }
   for (column in columns) {
-    $("." + columns[column]).removeClass("cell-normal");
-    $("." + columns[column]).removeClass("cell-correct");
-    $("." + columns[column]).addClass("cell-incorrect");
+    console.log('row:' + rows[row]);
+    $(".c" + columns[column]).removeClass("cell-normal");
+    $(".c" + columns[column]).removeClass("cell-correct");
+    $(".c" + columns[column]).addClass("cell-incorrect");
   }
 
   // TODO uncomment when ready
@@ -136,7 +132,7 @@ async function buttonClick(button) {
 
   const puzzle = await getPuzzle(button);
 
-  displayPuzzle(puzzle.game);
+  displayPuzzle(puzzle.puzzle);
 
   // set correct Btn to disabled, enable other buttons
   switch(button) {
