@@ -1,5 +1,9 @@
-This project uses Django and Bootstrap to display data pulled from free public APIs.
+Django webapp using:
+--Bootstrap
+--PostgreSQL, psycopg
+--Django Rest Framework
+--Hosted on Heroku with auto-deploy (gunicorn, whitenoise) at <a href='http://gregdorshimer.com'>http://gregdorshimer.com</a>
 
-Automatic deployment is set up between this repo and Heroku.
-
-http://gregdorshimer.com
+External APIs:
+--Dictionary: <a href='https://dictionaryapi.dev/'>https://dictionaryapi.dev/</a>
+--Sudoku: <a href='https://www.youdosudoku.com/>https://www.youdosudoku.com/</a>
