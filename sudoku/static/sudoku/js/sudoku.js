@@ -63,7 +63,6 @@ async function submit() {
       throw new Error('Response status: ' + response.status);
     } else {
       const json = await response.json();
-      console.log(json);
       if (json['correct']) {
         alertCorrect();
       } else {
@@ -95,7 +94,6 @@ function alertIncorrect(rows, columns) {
     $(".r" + rows[row]).addClass("cell-incorrect");
   }
   for (column in columns) {
-    console.log('row:' + rows[row]);
     $(".c" + columns[column]).removeClass("cell-normal");
     $(".c" + columns[column]).removeClass("cell-correct");
     $(".c" + columns[column]).addClass("cell-incorrect");

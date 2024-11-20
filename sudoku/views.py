@@ -54,7 +54,7 @@ class GameAPIView(APIView):
 
         # TODO look up game locally, choose response according to answer check
 
-        return Response({'rows': [4, 7], 'columns': [5, 7]}, status=status.HTTP_200_OK)
+        return Response({'rows': [2, 7], 'columns': [5, 7]}, status=status.HTTP_200_OK)
         # return Response({'correct': True}, status=status.HTTP_200_OK)
 
 """
