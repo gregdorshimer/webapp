@@ -123,9 +123,9 @@ if IS_HEROKU_APP:
     DATABASES = {
         "default": dj_database_url.config(
             env="DATABASE_URL",
-            CONN_MAX_AGE=600,
-            CONN_HEALTH_CHECKS=True,
-            SSL_REQUIRE=False,
+            conn_max_age=600,
+            conn_health_checks=True,
+            ssl_require=False,
         ),
     }
 else:
