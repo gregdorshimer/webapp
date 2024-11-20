@@ -34,6 +34,8 @@ class GameAPIView(APIView):
             response = requests.post("https://youdosudoku.com/api/", json=body, headers=headers)
             json = response.json()
             # TODO define schema and implement in models.py
+            # TODO expose new model to admin site by adding to sudoku/admin.py
+            # TODO update heroku build script to include makemigrations -> migrate
             # TODO store data from external API call locally, maybe including timestamp, completed w/o errors boolean
             del json['solution']
             return Response(json)

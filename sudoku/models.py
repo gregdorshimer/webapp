@@ -7,5 +7,3 @@ class TestModel(models.Model):
 
     def __str__(self):
         return self.test_string
-
-
