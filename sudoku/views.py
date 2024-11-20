@@ -33,10 +33,9 @@ class GameAPIView(APIView):
         try :
             response = requests.post("https://youdosudoku.com/api/", json=body, headers=headers)
             json = response.json()
-            # TODO store data from external API call locally, including gameID and timestamp
-            # TODO add gameID to json object
+            # TODO define schema and implement in models.py
+            # TODO store data from external API call locally, maybe including timestamp, completed w/o errors boolean
             del json['solution']
-            json['gameID'] = '5678'
             return Response(json)
         except requests.exceptions.RequestException:
             return Response({'error': 'Sudoku games not available.'}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
