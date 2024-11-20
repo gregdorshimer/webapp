@@ -1,23 +1,33 @@
-var gameID = '1234'; // TODO this doesn't work
-
 // TODO on-type into the calls, reset CSS to remove red highlighting for wrong columns and rows
-// TODO find a way to persist the gameID across calls and button clicks
 
 async function getPuzzle(difficulty) {
-  console.log('getPuzzle(' + difficulty + ')');
   try {
     const response = await fetch('game/?difficulty=' + difficulty);
     if (!response.ok) {
       throw new Error('Response status: ' + response.status);
     } else {
       const json = await response.json();
-      gameID = json.id;
       return json;
     }
   } catch (error) {
     console.error(error.message);
   }
 }
+
+function getStartingGame() {  answers = '';
+  answers = '';
+
+  $(".cell-text").each(function() {
+    if ($(this).attr("value")) {
+      answers += $(this).attr("value");
+    } else {
+      answers += "0";
+    }
+  });
+
+  return answers;
+}
+
 
 // pulls answers from the board and returns as a string with zeros for unfilled spaces
 function getAnswers() {
@@ -27,14 +37,11 @@ function getAnswers() {
     if ($(this).attr("value")) {
       answers += $(this).attr("value");
     } else if ($(this).val()) {
-      console.log('text found: ' + $(this).val());
       answers += $(this).val();
     } else {
       answers += "0";
     }
   });
-
-  console.log('answers: ' + answers);
 
   return answers;
 }
@@ -42,8 +49,6 @@ function getAnswers() {
 // sends the answers that are filled to the django web endpoint to check for correctness, and changes display according
 // to response
 async function submit() {
-  console.log('submit()');
-  console.log('gameID: ' + gameID);
   var answers = getAnswers();
 
   try {
@@ -51,7 +56,6 @@ async function submit() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        id: gameID,
         answers: answers,
       }),
     });
@@ -129,8 +133,6 @@ function displayPuzzle(puzzle) {
 }
 
 async function buttonClick(button) {
-  console.log('buttonClick(' + button + ')');
-
   const puzzle = await getPuzzle(button);
 
   displayPuzzle(puzzle.puzzle);
