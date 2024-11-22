@@ -9,7 +9,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from sudoku.models import GameModel
-from django.db import models
 from math import floor
 
 # TODO figure out out-of-band batch work for DB cleanup and pre-querying the external API
