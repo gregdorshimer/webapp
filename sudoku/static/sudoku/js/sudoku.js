@@ -49,14 +49,16 @@ function getAnswers() {
 // sends the answers that are filled to the django web endpoint to check for correctness, and changes display according
 // to response
 async function submit() {
-  var answers = getAnswers();
+  var submission = getAnswers();
+  var game = getStartingGame();
 
   try {
     const response = await fetch('game/', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        answers: answers,
+        game: game,
+        submission: submission,
       }),
     });
     if (!response.ok) {
@@ -79,8 +81,7 @@ function alertCorrect() {
   $(".cell").removeClass("cell-incorrect");
   $(".cell").addClass("cell-correct");
 
-  // TODO uncomment when ready
-  // alert("Puzzle completed!");
+  alert("Puzzle completed!");
 
   easyBtn.disabled = false;
   mediumBtn.disabled = false;
@@ -99,8 +100,7 @@ function alertIncorrect(rows, columns) {
     $(".c" + columns[column]).addClass("cell-incorrect");
   }
 
-  // TODO uncomment when ready
-  // alert("Check these spaces!");
+  alert("Check these spaces!");
 }
 
 function displayPuzzle(puzzle) {

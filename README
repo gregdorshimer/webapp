@@ -1,9 +1,10 @@
 Django webapp using:
 --Bootstrap
---PostgreSQL, psycopg
+--jQuery
 --Django Rest Framework
---Hosted on Heroku with auto-deploy (gunicorn, whitenoise) at <a href='http://gregdorshimer.com'>http://gregdorshimer.com</a>
+--PostgreSQL, psycopg
+--Hosted on Heroku with auto-deploy at http://gregdorshimer.com
 
 External APIs:
---Dictionary: <a href='https://dictionaryapi.dev/'>https://dictionaryapi.dev/</a>
---Sudoku: <a href='https://www.youdosudoku.com/>https://www.youdosudoku.com/</a>
+--Dictionary: https://dictionaryapi.dev/
+--Sudoku: https://www.youdosudoku.com/

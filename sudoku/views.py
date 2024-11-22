@@ -8,7 +8,11 @@ import requests
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from sudoku.models import GameModel
+from django.db import models
+from math import floor
 
+# TODO figure out out-of-band batch work for DB cleanup and pre-querying the external API
 
 def index(request):
     return render(request, "sudoku/index.html", )
@@ -33,10 +37,11 @@ class GameAPIView(APIView):
         try :
             response = requests.post("https://youdosudoku.com/api/", json=body, headers=headers)
             json = response.json()
-            # TODO define schema and implement in models.py
-            # TODO expose new model to admin site by adding to sudoku/admin.py
-            # TODO store data from external API call locally, maybe including timestamp, completed w/o errors boolean
-            # TODO figure out out-of-band batch work for DB cleanup and pre-querying the external API
+
+            # store game
+            game = GameModel.objects.create(game=json['puzzle'], solution=json['solution'], difficulty=json['difficulty'], time_queried=timezone.now())
+            # TODO catch errors on game duplication (see: get_or_create())
+
             del json['solution']
             return Response(json)
         except requests.exceptions.RequestException:
@@ -45,17 +50,35 @@ class GameAPIView(APIView):
 
     def post(self, request, *args, **kwargs):
         """
-        takes a "gameID", "answers"
-        looks up the gameID locally
+        takes game, submission
+        looks up the game locally
         checks answers for correctness
         --depending on correctness, make some alteration to DB for submission tracking
         :return: "correct" or arrays of columns and rows that are wrong
         """
-        # print('.data: ', request.data['answers']) # how to access post request body
+        # print('.data: ', request.data['submission']) # <-- how to access post request body
+        game = request.data['game']
+        submission = request.data['submission']
+        solution = GameModel.objects.get(game=game).solution
+        # TODO handle game not found case
 
-        # TODO look up game locally, choose response according to answer check
+        if solution == submission:
+            return Response({'correct': True}, status=status.HTTP_200_OK)
+        else:
+            # compile rows and columns that are wrong
+            rows = []
+            columns = []
+            for i in range(81):
+                if submission[i] != solution[i]:
+                    rows.append(floor(i / 9))
+                    columns.append(i % 9)
+            return Response({'correct': False,
+                             'rows': rows,
+                             'columns': columns},
+                            status=status.HTTP_200_OK)
 
-        return Response({'rows': [2, 7], 'columns': [5, 7]}, status=status.HTTP_200_OK)
+        # ex. of expected responses:
+        # return Response({'rows': [2, 7], 'columns': [5, 7]}, status=status.HTTP_200_OK)
         # return Response({'correct': True}, status=status.HTTP_200_OK)
 
 """

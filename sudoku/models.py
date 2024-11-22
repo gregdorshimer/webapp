@@ -8,3 +8,13 @@ class TestModel(models.Model):
 
     def __str__(self):
         return self.test_string
+
+
+class GameModel(models.Model):
+    game = models.CharField(max_length=81)
+    solution = models.CharField(max_length=81)
+    difficulty = models.CharField(max_length=16, default="none")
+    time_queried = models.DateTimeField("time_queried")
+
+    def __str__(self):
+        return self.game
