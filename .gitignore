@@ -2,3 +2,20 @@ sample.html
 style.css
 sudoku/template_tags/*
 templates/test.html
+
+# for testing now home page:
+static/img/1.png
+static/img/p-1.png
+static/img/p-2.png
+static/img/p-3.png
+static/img/p-4.png
+static/img/p-5.png
+static/img/p-6.png
+static/img/header.png
+static/fonts/*
+static/css/*
+static/js/bootstrap.min.js
+static/js/custom.js
+static/js/jquery-main.js
+static/js/main.js
+static/js/wow.min.js
