@@ -2,7 +2,6 @@
 # to use this tag, add:
 # {% load sudoku_tags %}
 # to the template
-# and
 
 from django import template
 import requests

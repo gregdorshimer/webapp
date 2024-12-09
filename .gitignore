@@ -1,3 +1,4 @@
 sample.html
 style.css
-sudoku_tags.py
+sudoku/template_tags/*
+templates/test.html

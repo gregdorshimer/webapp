@@ -75,20 +75,3 @@ class GameAPIView(APIView):
                              'rows': rows,
                              'columns': columns},
                             status=status.HTTP_200_OK)
-
-        # ex. of expected responses:
-        # return Response({'rows': [2, 7], 'columns': [5, 7]}, status=status.HTTP_200_OK)
-        # return Response({'correct': True}, status=status.HTTP_200_OK)
-
-"""
-class IndexView(generic.ListView):
-    template_name = "dictionary/index.html"
-    def get_queryset(self):
-        return
-"""
-"""
-class IndexView(generic.ListView):
-    template_name = "wiki/index.html"
-
-"""
-
