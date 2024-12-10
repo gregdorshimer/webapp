@@ -21,7 +21,8 @@ from webapp import views
 
 urlpatterns = [
     #path('', views.test, name='test'),
-    path('', views.index, name='index'),
+    path('', views.test2, name='test2'),
+    #path('', views.index, name='index'),
     path('dictionary/', include("dictionary.urls"), name='dictionary'),
     path('wiki/', include("wiki.urls"), name='wiki'),
     path('sudoku/', include("sudoku.urls"), name='sudoku'),
