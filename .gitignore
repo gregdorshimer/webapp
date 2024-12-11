@@ -1,8 +1,8 @@
-/sample.html
-/style.css
-/sudoku/templatetags/
-/templates/test.html
-/templates/test2.html
+sample.html
+style.css
+sudoku/templatetags/
+templates/test.html
+templates/test2.html
 
 # for testing now home page:
 static/img/1.png
