@@ -1,8 +1,8 @@
-sample.html
-style.css
-sudoku/templatetags/*
-templates/test.html
-templates/test2.html
+/sample.html
+/style.css
+/sudoku/templatetags/
+/templates/test.html
+/templates/test2.html
 
 # for testing now home page:
 static/img/1.png
@@ -13,6 +13,6 @@ static/img/p-4.png
 static/img/p-5.png
 static/img/p-6.png
 static/img/header.png
-static/fonts/*
-static/css/*
-static/js/*
+static/fonts/
+static/css/
+static/js/
