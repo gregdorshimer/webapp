@@ -10,9 +10,3 @@ def index(request):
     #return HttpResponse("Hello, world. You're at the dictionary index.")
     #context = {"latest_question_list": latest_question_list}
     return render(request, "wiki/index.html", )
-
-"""
-class IndexView(generic.ListView):
-    template_name = "wiki/index.html"
-
-"""

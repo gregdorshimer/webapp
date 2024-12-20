@@ -4,19 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- custom JS -->
-    <script src="{% static 'sudoku/js/sudoku.js' %}"></script>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <!-- custom CSS -->
     <link rel="stylesheet" href="{% static 'sudoku/css/sudoku_styles.css' %}">
+
+    <!-- custom JS -->
+    <script src="{% static 'sudoku/js/sudoku.js' %}"></script>
 
     <title>Webapp - Sudoku</title>
 </head>
@@ -36,9 +41,9 @@
                         Apps
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/dictionary">Dictionary</a></li>
+                        <!-- <li><a class="dropdown-item" href="/dictionary">Dictionary</a></li> -->
                         <li><a class="dropdown-item" href="/sudoku">Sudoku</a></li>
-                        <li><a class="dropdown-item" href="/wiki">Wiki</a></li>
+                        <!-- <li><a class="dropdown-item" href="/wiki">Wiki</a></li> -->
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -84,7 +89,7 @@
             <table>
                 <tbody>
                     <tr>
-                        <!-- use response in a javascript function to update screen, either highlighting
+                        <!-- TODO use response in a javascript function to update screen, either highlighting
                         rows/columns that are incorrect or doing some other type of message -->
                         <!-- example:
                         <td class="lt r0 c0 cell cell-normal"><input class="cell-text f" id="c0" autocomplete="off" readonly="" value="2"></td>

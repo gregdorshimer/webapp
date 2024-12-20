@@ -1,8 +1,8 @@
 sample.html
 style.css
 sudoku/templatetags/
+templates/index2.html
 templates/test.html
-templates/test2.html
 
 # for testing now home page:
 static/img/1.png
@@ -13,6 +13,8 @@ static/img/p-4.png
 static/img/p-5.png
 static/img/p-6.png
 static/img/header.png
+static/img/In-White-34.png
 static/fonts/
 static/css/
+!static/css/index_styles.css
 static/js/
