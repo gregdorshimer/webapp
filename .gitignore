@@ -15,6 +15,6 @@ static/img/p-6.png
 static/img/header.png
 static/img/In-White-34.png
 static/fonts/
-static/css/
+static/css/*
 !static/css/index_styles.css
 static/js/

@@ -1,0 +1,33 @@
+body {
+    background-color: #333333;
+    font-family: Verdana, Arial, sans-serif;
+    height: 100%;
+    color: #e1e1e1;
+}
+
+.row-intro {
+    height: 60vh;
+    background-color: #333333;
+}
+
+.row-blurb {
+    min-height: 30vh;
+    background-color: #333333;
+    /* height: 30vh; */
+}
+
+.row-content {
+    min-height: 40vh;
+    background-color: #333333;
+}
+
+.row-footer {
+    min-height: 10vh;
+    color: #707070;
+    background-color: #333333;
+}
+
+.vr {
+    color: #e1e1e1;
+    opacity: 100;
+}
