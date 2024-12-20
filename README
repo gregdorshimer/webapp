@@ -6,5 +6,4 @@ Django webapp using:
 --Hosted on Heroku with auto-deploy at http://gregdorshimer.com
 
 External APIs:
---Dictionary: https://dictionaryapi.dev/
 --Sudoku: https://www.youdosudoku.com/
