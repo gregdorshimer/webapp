@@ -18,3 +18,5 @@ static/fonts/
 static/css/*
 !static/css/index_styles.css
 static/js/
+
+error.html

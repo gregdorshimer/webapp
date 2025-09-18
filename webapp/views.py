@@ -22,5 +22,8 @@ def resume(request):
     return FileResponse(open(file_path, 'rb'), as_attachment=False)
 
 class SlackAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        return Response({'challenge': 'GET response!'}, status = status.HTTP_200_OK)
+    
     def post(self, request, *args, **kwargs):
-        return Response({'challenge': 'response!'}, status = status.HTTP_200_OK)
+        return Response({'challenge': f"POST response! data received: {request.data['challenge']}"}, status = status.HTTP_200_OK)
