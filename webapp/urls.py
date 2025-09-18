@@ -8,5 +8,6 @@ urlpatterns = [
     #path('dictionary/', include("dictionary.urls"), name='dictionary'),
     #path('wiki/', include("wiki.urls"), name='wiki'),
     path('sudoku/', include("sudoku.urls"), name='sudoku'),
+    path('slack/', views.SlackAPIView.as_view(), name='slack'),
     path('admin/', admin.site.urls)
 ]
