@@ -26,4 +26,5 @@ class SlackAPIView(APIView):
         return Response({'challenge': 'GET response!'}, status = status.HTTP_200_OK)
     
     def post(self, request, *args, **kwargs):
+        print(f"received POST with challenge: {request.data['challenge']}")
         return Response({'challenge': f"POST response! data received: {request.data['challenge']}"}, status = status.HTTP_200_OK)
