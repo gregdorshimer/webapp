@@ -23,9 +23,13 @@ def resume(request):
 
 class SlackAPIView(APIView):
     def get(self, request, *args, **kwargs):
+        print(f"request received: {request.headers}")
+        print(f"data: {request.data}")
         return Response({'challenge': 'GET response!'}, status = status.HTTP_200_OK)
     
     def post(self, request, *args, **kwargs):
+        print(f"request received: {request.headers}")
+        print(f"data: {request.data}")
         resp = {}
         data = request.data
         if 'event' in data.keys() and 'text' in data['event'].keys():
