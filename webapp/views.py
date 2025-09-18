@@ -13,8 +13,8 @@ from webapp.settings import RESUME_DIR
 
 
 def index(request):
-    #return HttpResponse("Hello, world. You're at the dictionary index.")
-    #context = {"latest_question_list": latest_question_list}
+    #return HttpResponse('Hello, world. You're at the dictionary index.')
+    #context = {'latest_question_list': latest_question_list}
     return render(request, "index.html", )
 
 def resume(request):
@@ -26,10 +26,12 @@ class SlackAPIView(APIView):
         return Response({'challenge': 'GET response!'}, status = status.HTTP_200_OK)
     
     def post(self, request, *args, **kwargs):
-        print(f"received POST:")
-        print(f"request: {request}")
-        print(f"request data: {request.data}")
-        print(f"keys: {request.data.keys()}")
-        challenge = request.data['challenge'] if 'challenge' in request.data.keys() else 'no challenge was accessible'
-        print(f"challenge: {challenge}")
-        return Response({'challenge': f"{challenge}"}, status = status.HTTP_200_OK)
+        resp = {}
+        data = request.data
+        if 'event' in data.keys() and 'text' in data['event'].keys():
+            return Response({'msg_txt_received': f"{data['event']['text']}"},
+                            status = status.HTTP_200_OK)
+        else:
+            challenge = data['challenge'] if 'challenge' in data.keys() else 'no challenge and no data'
+            return Response({'challenge': f"{challenge}"},
+                            status = status.HTTP_200_OK)
