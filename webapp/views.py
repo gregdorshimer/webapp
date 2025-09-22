@@ -67,8 +67,12 @@ class SlackAPIView(APIView):
                     ]
                 )
 
+                return JsonResponse({"ok": True})
+
         except SlackApiError as e:
             return JsonResponse({"error": str(e)}, status=500)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
 
         # resp = {}
         # data = request.data
