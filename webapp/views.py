@@ -14,7 +14,7 @@ from slack_sdk.errors import SlackApiError
 
 from webapp.settings import RESUME_DIR
 
-SLACK_BOT_TOKEN = 'xoxb-9541067875842-9568659992416-AiLgkhyyIo304ycdfmPWLSIu' # this token is for a dummy app
+SLACK_BOT_TOKEN = 'test-token' # this token is for a dummy app
 
 def index(request):
     #return HttpResponse('Hello, world. You're at the dictionary index.')
