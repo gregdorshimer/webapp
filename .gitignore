@@ -18,8 +18,3 @@ static/fonts/
 static/css/*
 !static/css/index_styles.css
 static/js/
-
-# related to testing slack api
-error.html
-slack.json
-block-kit.json
