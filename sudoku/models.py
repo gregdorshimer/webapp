@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 
 
 class TestModel(models.Model):
@@ -18,3 +19,13 @@ class GameModel(models.Model):
 
     def __str__(self):
         return self.game
+    
+class Flagged(models.Model):
+    time = models.DateTimeField(auto_now_add=True)
+    ip = models.CharField(max_length=15)
+    postal = models.CharField(max_length=5, validators=[MinLengthValidator(5)])
+    city = models.CharField(max_length=50)
+    region = models.CharField(max_length=30)
+
+    def __str__(self):
+        return f"{self.ip}, {self.postal}, {self.city}, {self.region}, {self.time}"
